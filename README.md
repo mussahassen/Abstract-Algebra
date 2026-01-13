@@ -14,7 +14,6 @@ Table of contents:
 - new_lean
 	- AA_proofs.lean
 
-![The Dihedral group D_3, shown as rigid symmatries of an equilateral triangle](D6.jpg)
-
+![The Dihedral group D_3, shown as rigid symmatries of an equilateral triangle](/Users/mussa/Documents/GitHub/Abstract-Algebra/D6.png)
 
 Image from Wikipedia article [Dihedral group of order 6](https://en.wikipedia.org/wiki/Dihedral_group_of_order_6)

@@ -14,6 +14,6 @@ Table of contents:
 - new_lean
 	- AA_proofs.lean
 
-![](/Users/mussa/Documents/GitHub/Abstract-Algebra/D6.png)
+![Alt text](image.png)
 
 Image from Wikipedia article [Dihedral group of order 6](https://en.wikipedia.org/wiki/Dihedral_group_of_order_6)

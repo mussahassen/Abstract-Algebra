@@ -4,13 +4,14 @@ Content is essentially based of my notes from the Colorado State University cour
 Primary text: Abstract Algebra: Theory and Applications, by Thomas W. Judson.
 
 ### Guide
-Start with the python notebooks. The modules are by the sections in my notes (not all of the chapters in the textbook are covered), it starts with definitions and theorems then elaborates examples. Theorems are shown in Lean file. 
+Start with the python notebooks. The modules are by the sections in my notes (not all of the chapters in the textbook are covered), it starts with definitions and theorems then elaborates examples with python functions. There are example exrcises in a seperate folder, along with some solutions. Theorems are shown in Lean file.
 
 Table of contents:
 - Modules
 	- Foundations
 	- Groups
 	- Rings and Fields
+	- Exercises/
 - new_lean
 	- AA_proofs.lean
 

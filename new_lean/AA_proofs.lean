@@ -6,6 +6,7 @@ import Mathlib.GroupTheory.Perm.Basic
 import Mathlib.Data.Fintype.Basic
 import Mathlib.Algebra.Group.Defs
 import Mathlib.Algebra.Ring.Basic
+import Mathlib
 
 
 ----------------------------------
@@ -286,10 +287,46 @@ theorem char_is_prime_or_zero (n : ℕ) [CharP D n] :
 
 
 -- The Cancellation Law
+variable {D : Type} [CommRing D] [IsDomain D]
+
+theorem cancel_left {a b c : D} (ha : a ≠ 0) (h : a * b = a * c) : b = c := by
+  have h' : a * (b - c) = 0 := by
+    calc
+      a * (b - c) = a * b - a * c := by ring
+      _ = 0 := by rw [h, sub_self]
+  -- no zero divisors
+  have h'' : b - c = 0 :=
+    (mul_eq_zero.mp h').resolve_left ha
+  exact sub_eq_zero.mp h''
+
+
+
 
 
 
 -- The Polynomial Remainder Theorem
+open Polynomial
+
+theorem polynomial_remainder_theorem
+  {R : Type} [CommRing R] (p : Polynomial R) (a : R) :
+  ∃ q : Polynomial R, p = q * (X - C a) + C (p.eval a) := by
+  obtain ⟨q, r, h_eq, h_deg⟩ :=
+    Polynomial.exists_quotient_remainder p (X - C a)
+  have hmonic : Monic (X - C a) := monic_X_sub_C a
+  have hdeg' : r.degree ≤ 0 := by
+    have := h_deg hmonic
+    simpa using this
+  obtain ⟨r₀, hr⟩ := eq_C_of_degree_le_zero hdeg'
+  subst hr
+  have h_eval := congrArg (eval a) h_eq
+  simp at h_eval
+
+  refine ⟨q, ?_⟩
+  simpa [h_eval] using h_eq
+
+
+
+
 -- The Factor Theorem
 -- Gauss's Lemma
 -- Maximality-Field Theorem

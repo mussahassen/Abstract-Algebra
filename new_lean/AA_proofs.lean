@@ -328,7 +328,28 @@ theorem polynomial_remainder_theorem
 
 
 -- The Factor Theorem
+variable {F : Type} [Field F]
+
+theorem factor_theorem (f : F[x]) (a : F) :
+    (X - C a) ∣ f ↔ f.eval a = 0 := by
+  constructor
+  · intro h
+    obtain ⟨q, hq⟩ := h
+    rw [hq]
+    simp [eval_mul, eval_sub, eval_X, eval_C]
+
+  · intro h_root
+    have h_rem := mod_X_sub_C f a
+
+    rw [h_root] at h_rem
+    rw [← dvd_iff_modByMonic_eq_zero (monic_X_sub_C a)]
+    exact h_rem
+
+
+
 -- Gauss's Lemma
+
+
 -- Maximality-Field Theorem
 -- Primality-Domain Theorem
 -- Chinese Remainder Theorem

@@ -348,6 +348,15 @@ theorem factor_theorem (f : F[x]) (a : F) :
 
 
 -- Gauss's Lemma
+theorem gauss_lemma
+  {R : Type} [CommRing R] [IsDomain R]
+  (p q : Polynomial R)
+  (hp : p.IsPrimitive)
+  (hq : q.IsPrimitive) :
+  (p * q).IsPrimitive :=
+by
+  exact hp.mul hq
+
 
 
 -- Maximality-Field Theorem
